@@ -21,3 +21,16 @@ func TestGee(t *testing.T) {
 		t.Errorf("FAILED: want %s, got %s", want, got)
 	}
 }
+
+func TestGeeIgnoreGenFiles(t *testing.T) {
+	cmd := exec.Command("./gee", "testdata/input.gen.go")
+	got, err := cmd.Output()
+
+	if err != nil {
+		t.Fatal("failed to run command:", err)
+	}
+
+	if bytes.Compare(got, []byte("")) != 0 {
+		t.Errorf("FAILED: want %s, got %s", "", got)
+	}
+}
