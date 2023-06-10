@@ -42,7 +42,7 @@ var rootCmd = &cobra.Command{
 		// Fetch all `.go` files in the directory
 		var files []string
 		if err := filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
-			if filepath.Ext(path) == ".go" && filepath.Ext(path) != ".gen.go" {
+			if filepath.Ext(path) == ".go" && !strings.HasSuffix(path, ".gen.go") {
 				files = append(files, path)
 			}
 			return nil
