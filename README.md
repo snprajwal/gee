@@ -91,4 +91,4 @@ gee -i main.go
 
 ## License
 
-This project is licensed under the MIT License and is available [here](LICENSE).
+This project is licensed under the MIT License, which is available [here](LICENSE).
